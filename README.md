@@ -27,28 +27,66 @@ Diff = A ⊕ B ⊕ Bin B = A'Bin + A'B + BBin
 
 ## Procedure
 
-
-
-Write the detailed procedure here 
+Connect the supply (+5) to the circuit
+Switch ON the main switch
+If the output is 1, then the led glows.
 
 
 ## Program:
-/*
+
 Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+
+Developed by: G.Chethan kumar
+
+RegisterNumber: 22005596
+
+Half subtractor:
+```
+module halfsub(output B,D, input X,Y);
+assign D = (X ^ Y);
+assign B = (~X & Y);
+endmodule
+```
+
+Full subtractor:
+```
+module fullsub(X,Y,Z,Borrow,Difference);
+input X,Y,Z;
+output Borrow,Difference;
+assign Difference = (X^Y^Z);
+assign Borrow = (~X&(Y^Z)|(Y&Z));
+endmodule
+```
 
 ## Output:
+## Half subtractor:
 
-## Truthtable
+### RTL realization:
 
+![Screenshot_20230105_100141](https://user-images.githubusercontent.com/118348224/210837673-2a4a35a0-24b5-40ef-a90b-3dab1897a1a2.png)
 
+### Timing diagram:
 
-##  RTL realization
+![Screenshot_20230105_100428](https://user-images.githubusercontent.com/118348224/210839128-f0f9b185-566f-4e0a-a0f8-2fc3e5d38324.png)
 
+### Truthtable:
 
-## Timing diagram 
+![image](https://user-images.githubusercontent.com/118348224/210838655-9c1aab18-52ed-4aed-95a2-0d7bd76dec98.png)
+
+## Full subtractor:
+
+### RTL realization:
+
+![Screenshot_20230105_101341](https://user-images.githubusercontent.com/118348224/210837877-2796d142-2c65-45d4-b6ce-8763d07ddcba.png)
+
+### Timing diagram 
+
+![Screenshot_20230105_101858](https://user-images.githubusercontent.com/118348224/210839349-71939a5a-2978-4fd4-ae2a-8efc61b632ed.png)
+
+### Truthtable:
+
+![image](https://user-images.githubusercontent.com/118348224/210838909-a86df8b1-969d-404a-842f-ea5df4870e22.png)
+
 
 ## Result:
-Thus the half subtractor and full subtractor circuits are designed and the truth tables is verified using quartus software.
+Thus, the half subtractor and full subtractor circuits are designed and the truth tables is verified using quartus software.
